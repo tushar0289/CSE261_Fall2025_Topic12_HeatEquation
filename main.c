@@ -1,16 +1,11 @@
-// Not ready to output files
-// Need more calculation
-
 #include <stdio.h>
-
-double sqr(double x);
 
 int main(void){
     double rod_length = 1.0;
     double grid_spacing = 0.05;
     double diffusivity = 0.25;
     double stability_factor = 0.25;
-    double time_step = (stability_factor * sqr(grid_spacing)) / diffusivity;
+    double time_step = (stability_factor * (grid_spacing * grid_spacing)) / diffusivity;
     
     printf("Time step: %g\n", time_step);
     
@@ -55,8 +50,4 @@ int main(void){
     fclose(fp);
     
     return 0;
-}
-
-double sqr(double x){
-    return x * x;
 }
