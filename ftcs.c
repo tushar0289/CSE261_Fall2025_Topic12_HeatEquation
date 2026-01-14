@@ -30,7 +30,7 @@ int main(void){
     
     printf("%d\n", nx);
     
-    FILE *fp = fopen("ftcs.dat", "w");
+    FILE *fp = fopen("ftcs(0.01).dat", "w");
     
     for(int i = 0; i < nt; i++){
         for(int j = 1; j < nx - 1; j++){
