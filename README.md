@@ -28,6 +28,13 @@ gcc -o ftcs ftcs.c
 4. Execute: Run `./crank_nicolson` or `./ftcs` to generate .dat output files.
 5. Plot: The output format is **Space-Delimited Data** or **Gnuplot-Compatible Raw Data**. This format will work with gnuplot but is not compatible for csv-format plotting.
 
+## Final Observations:
+1. **Stability**: The FTCS method failed at time step 0.5 where r is 1.2 (violating the stablity condition of r; r <= 0.5>) producing stripe like patters. Crank-Nicolson method remained stable and physically accurate at the same time step and r.
+
+2. **Accuracy**: Error analysis at 0.1 shows that numerical error is concentrated the the regions of the highest thermal gradient (the edges of the initial block).
+
+Since, there is no r condition in Crank-Nicolson Method, time steps can be taken larger (though it might make huge errors but it will save computation time).
+
 
 ## Build With
 - C Language
