@@ -27,7 +27,7 @@ int main(void){
     double B = 1.0 + r;
     double C = -r / 2.0;
     
-    FILE *fp = fopen("crank_nicolson(0.05).txt", "w");
+    FILE *fp = fopen("crank_nicolson(0.5).txt", "w");
     
     for(int i = 0; i < nx; i++){
         for(int i = 1; i < nx - 1; i++){
