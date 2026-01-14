@@ -6,7 +6,7 @@ int main(void){
     double length = 1.0;
     double t_max = 0.1; // max simulation time
     double alpha = 0.1;
-    double t_target = 0.05;
+    double t_target = 0.1;
     
     double dx = length / (nx - 1);
     double dt = t_target / nt; // difference btwn each time step
@@ -27,7 +27,7 @@ int main(void){
     double B = 1.0 + r;
     double C = -r / 2.0;
     
-    FILE *fp = fopen("crank_nicolson(0.5).txt", "w");
+    FILE *fp = fopen("ref_crank_nicolson(0.1).txt", "w");
     
     for(int i = 0; i < nx; i++){
         for(int i = 1; i < nx - 1; i++){
