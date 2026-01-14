@@ -1,7 +1,7 @@
 # CSE261_Fall2025_Topic12_HeatEquation
 # Numerical analysis of 1D Heat Equation
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)]
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A numerical simulation of the 1D Heat Equation comparing **FTCS (Forward Time, Center Space)** and **CN (Crank-Nicolson)** methods.
 
@@ -10,7 +10,7 @@ A numerical simulation of the 1D Heat Equation comparing **FTCS (Forward Time, C
 - **Crank-Nicolson Implementation:** A robust, implicit way to solving heat equation using **Thomas Algorithm**.
 - **Output Analysis:** Built in capability to compare output at specific time.
 
-*Note on Design:
+***Note on Design**:
 This simulation uses Static Configuration. Parameters such as nx(grid width), nt(time steps), alpha(thermal diffusivity), and values at certain points are defined within the source code to optimize performance. All the outputs are obtained by statically changing some parameters.*
 
 ## Configuration & Usage
