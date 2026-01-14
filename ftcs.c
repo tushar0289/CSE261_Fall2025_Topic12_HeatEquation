@@ -5,7 +5,7 @@ int main(void){
     int nt = 100;
     int nx = 50;
     double alpha = 0.1;
-    double t_target = 0.01;
+    double t_target = 0.05;
     
     double dx = length / (nx - 1);
     double dt = t_target / nt;
@@ -30,7 +30,7 @@ int main(void){
     
     printf("%d\n", nx);
     
-    FILE *fp = fopen("ftcs(0.01).dat", "w");
+    FILE *fp = fopen("ftcs(0.05).dat", "w");
     
     for(int i = 0; i < nt; i++){
         for(int j = 1; j < nx - 1; j++){
