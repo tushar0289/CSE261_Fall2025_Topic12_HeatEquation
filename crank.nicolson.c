@@ -2,7 +2,7 @@
 
 int main(void){
     int nx = 50;
-    int nt = 100; // number of time steps in that simulation
+    int nt = 5000; // number of time steps in that simulation
     double length = 1.0;
     double t_max = 0.1; // max simulation time
     double alpha = 0.1;
@@ -27,7 +27,7 @@ int main(void){
     double B = 1.0 + r;
     double C = -r / 2.0;
     
-    FILE *fp = fopen("ref_crank_nicolson(0.1).txt", "w");
+    FILE *fp = fopen("refernce.txt", "w");
     
     for(int i = 0; i < nx; i++){
         for(int i = 1; i < nx - 1; i++){
