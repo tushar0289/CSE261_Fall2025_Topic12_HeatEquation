@@ -1,51 +1,49 @@
 #include <stdio.h>
 
 int main(void){
-    double rod_length = 1.0;
-    double grid_spacing = 0.05;
-    double diffusivity = 0.25;
-    double stability_factor = 0.25;
-    double time_step = (stability_factor * (grid_spacing * grid_spacing)) / diffusivity;
+    double length = 1.0;
+    int nt = 100;
+    int nx = 50;
+    double alpha = 0.1;
+    double t_target = 0.01;
     
-    printf("Time step: %g\n", time_step);
+    double dx = length / (nx - 1);
+    double dt = t_target / nt;
+    double r = (alpha * dt) / (dx * dx);
+
     
-    double n;
-    printf("Enter time: \n");
-    scanf("%lf", &n);
-    printf("Showing result for %g second FTCS\n", n);
+    printf("Time step: %g\n", dt);
+
     
-    int time_itr = n / time_step;
-    int space_itr = rod_length / grid_spacing + 1;
-    
-    if (stability_factor < 0.5)
+    if (r < 0.5)
         printf("Stable FTCS\n");
     
-    printf("stability_factor: %g\n", stability_factor);
+    printf("stability_factor: %g\n", r);
     
-    double temp[space_itr] = {};
-    int mid = space_itr / 2;
+    double temp[nx] = {};
     
-    temp[mid] = 100.0;
+    for(int i = nx / 3; i < 2 * nx / 3; i++)
+        temp[i] = 100.0;
     
     
-    double new_temp[space_itr] = {};
+    double new_temp[nx] = {};
     
-    printf("%d\n", time_itr);
+    printf("%d\n", nx);
     
     FILE *fp = fopen("ftcs.dat", "w");
     
-    for(int i = 0; i < time_itr; i++){
-        for(int j = 1; j < space_itr - 1; j++){
-            new_temp[j] = temp[j] + stability_factor * (temp[j - 1] - 2 * temp[j] + temp[j + 1]);
+    for(int i = 0; i < nt; i++){
+        for(int j = 1; j < nx - 1; j++){
+            new_temp[j] = temp[j] + r * (temp[j - 1] - 2 * temp[j] + temp[j + 1]);
         }
         new_temp[0] = 0;
-        new_temp[space_itr - 1] = 0;
-        for(int j = 0; j < space_itr; j++)
+        new_temp[nx - 1] = 0;
+        for(int j = 0; j < nx; j++)
             temp[j] = new_temp[j];
     }
     
-    for(int i = 0; i < space_itr; i++){
-        fprintf(fp, "%g %g\n", i * grid_spacing, temp[i]);
+    for(int i = 0; i < nx; i++){
+        fprintf(fp, "%g %g\n", i * dx, temp[i]);
     }
     fclose(fp);
     
