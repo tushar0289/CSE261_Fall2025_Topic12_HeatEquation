@@ -11,7 +11,7 @@ int main(void){
     
     fprintf(f_error, "x ftcs_error cn_error");
     
-    while(fscanf(fref, "%lf %lf", &x, &u_ref) != EOF && fscanf(fref, "%*f %lf", &u_ftcs) != EOF && fscanf(fcn, "%*f %lf", &u_cn) != EOF){
+    while(fscanf(fref, "%lf %lf", &x, &u_ref) != EOF && fscanf(fftcs, "%*f %lf", &u_ftcs) != EOF && fscanf(fcn, "%*f %lf", &u_cn) != EOF){
         double err_ftcs = fabs(u_ftcs - u_ref);
         double err_cn = fabs(u_cn - u_ref);
         
